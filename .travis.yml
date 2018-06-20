@@ -1,15 +1,13 @@
 dist: trusty
 language: c
 sudo: false
-addons:
-  apt:
-    packages:
-    - g++
 env:
   global:
     LEIPT=1.76.0
     TESS=3.05.02
 install:
   - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
+  - tar xvf leptonica-$LEIPT.tar.gz
   - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
+  - tar xvf TESS.tar.gz
 
