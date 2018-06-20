@@ -11,14 +11,23 @@ install:
   - mv leptonica-$LEIPT leiptonica
   - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
   - tar xvf $TESS.tar.gz
-  - mv $TESS tesseract
+  - mv tesseract-$TESS tesseract
   - export TESSERACT_INSTALL=`pwd`/.tesseract
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
+  - export LIBLEPT_HEADERSDIR="$TESSERACT_INSTALL/include"
+  - export LDFLAGS="-L$TESSERACT_INSTALL/lib"
+  - export CFLAGS="-I$TESSERACT_INSTALL/include"
+
 script:
   - cd leiptonica
   - ./configure --prefix=$TESSERACT_INSTALL
   - make
   - make install
-
+  - cd ..
+  - cd tesseract
+  - ./configure --prefix=$TESSERACT_INSTALL
+  - make
+  - make install
+  - cd ..
