@@ -9,5 +9,4 @@ install:
   - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
   - tar xvf leptonica-$LEIPT.tar.gz
   - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
-  - tar xvf TESS.tar.gz
-
+  - tar xvf $TESS.tar.gz
