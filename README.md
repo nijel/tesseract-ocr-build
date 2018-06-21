@@ -14,6 +14,5 @@ install:
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
-  - export TESSDATA_PREFIX=/usr/share/tesseract-ocr/tessdata/
   - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/3.05.02-3/tesseract.tar.xz | tar -C $HOME -xfJ -
 ```
