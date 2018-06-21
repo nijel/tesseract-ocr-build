@@ -33,7 +33,7 @@ script:
 - make
 - make install
 - cd ..
-- cd $TESSERACT_INSTAL/share/tessdata/
+- cd $TESSERACT_INSTALL/share/tessdata/
 - wget https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata
 - cd $HOME
 - tar cvfJ tesseract.tar.xz .tesseract
