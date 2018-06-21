@@ -2,47 +2,47 @@ dist: trusty
 language: c
 sudo: false
 env:
-  global: 
-    - LEIPT=1.76.0 
-    - TESS=3.05.02
+  global:
+  - LEIPT=1.76.0
+  - TESS=3.05.02
 
 install:
-  - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
-  - tar xvf leptonica-$LEIPT.tar.gz
-  - mv leptonica-$LEIPT leiptonica
-  - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
-  - tar xvf $TESS.tar.gz
-  - mv tesseract-$TESS tesseract
-  - export TESSERACT_INSTALL=$HOME/.tesseract
-  - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
-  - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
-  - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
-  - export LIBLEPT_HEADERSDIR="$TESSERACT_INSTALL/include"
-  - export LDFLAGS="-L$TESSERACT_INSTALL/lib"
-  - export CFLAGS="-I$TESSERACT_INSTALL/include"
-  - git config --local user.name "Automated Build"
-  - git config --local user.email "noreply@cihar.com"
-  - git tag "$TESS-$LEIPT-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
+- tar xvf leptonica-$LEIPT.tar.gz
+- mv leptonica-$LEIPT leiptonica
+- wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
+- tar xvf $TESS.tar.gz
+- mv tesseract-$TESS tesseract
+- export TESSERACT_INSTALL=$HOME/.tesseract
+- export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
+- export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
+- export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
+- export LIBLEPT_HEADERSDIR="$TESSERACT_INSTALL/include"
+- export LDFLAGS="-L$TESSERACT_INSTALL/lib"
+- export CFLAGS="-I$TESSERACT_INSTALL/include"
+- git config --local user.name "Automated Build"
+- git config --local user.email "noreply@cihar.com"
+- git tag "$TESS-$LEIPT-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 script:
-  - cd leiptonica
-  - ./configure --prefix=$TESSERACT_INSTALL
-  - make
-  - make install
-  - cd ..
-  - cd tesseract
-  - ./autogen.sh
-  - ./configure --prefix=$TESSERACT_INSTALL
-  - make
-  - make install
-  - cd ..
-  - cd $HOME
-  - tar cvfJ tesseract.tar.xz .tesseract
+- cd leiptonica
+- "./configure --prefix=$TESSERACT_INSTALL"
+- make
+- make install
+- cd ..
+- cd tesseract
+- "./autogen.sh"
+- "./configure --prefix=$TESSERACT_INSTALL"
+- make
+- make install
+- cd ..
+- cd $HOME
+- tar cvfJ tesseract.tar.xz .tesseract
 
 deploy:
   provider: releases
   api_key:
-    secure: wI/KDbEo1lYfV0ACWlPVuM2VkKekCrTHPP8aiPZAg4uG2PA4wlvj9RiHM210ul+cxRLF1Yrwtq2jZXdeZmLS1L4NRVfCyi67XDUFfEMi0hkZLlVvlVukDj4htpe9CJuQc7VGH9bOT7rsbN1dpy41ejbMF1H+teHIYDJLzMV+gwJtaTanhJDXO9njAulLc1IdkS9yDKQ7POQSsP5Q60JfcyfeojJPaBp9yRnCjVwapf7I3iH7Fz4EdsoOKFvvl5HhRdY/p74DEoAokrsqZ3+AfcOykXxyDIHowQyu2Nfa/xOCw4K5IqoCk7jfyV7y+S+SjuuqaIZ9zSaO86MMurpRfteS8TSZpxJDNFEVSeJ8TllhIFhx+sfni4ZL9MOJ77zRj9PDqwrF6dAKb2ESvhnhA2W9KjphQ4q4skCZRWyuoeRKMExUeLDDj+I6yUyQNIHSh5Tclek6dtzFR9+TrpEmFP/TU8KZGeTx+WFmMZAvDqBOtk5IQvAvgHw0XAosVccHmeb5rd0BB+/BEwxGjEPUOot3krn+D480w1Lfyh0mQHjkixyVGnXjADuQDVAcvfuLGF4yWim77Sw344MNMpnaaNr0+0FT4uurS1ZnwgL3JnHe8YHqt+HSZnWDsJjPdLAO0cvuay6bPt9nVyzPHzChyr3kuiE1cqXPb6BkFJ7l7+k=
+    secure: UD+4avG9FX4Lqmn39su8WwYetdoLV7rS7sDyEqvGQ5N6Tclst2FfXqz3J8AUE7j7OPKsB8xPhtOusjIkSofDug5WqRcQ8VdoH8rfJPdoVW03rFMLuGcLn+2pYIoDKfW0gvv1hmKjDyV5+fhN9UFLPp8tDyd0aD1jGBOA2OQNrN+Tz2FdLvkSutBrCG6CP3ytL8/V7hCAYybQxs0phZFowgGhn/NpOlj1KZ6PFRKngnAxkLR92MJsSmNxz9Hs16f7rG/hiFJPrNzV+MBb6FZuLRJJT84137bt06v5ajNUgAZfukYaN2n/QPn04OVRNxDAC3KeUyiBtHSPncO7xfSR6zQydjgwUZvH9K2RHxXY1rvT6b6F50XPUDaOtPoIKTWCFkWbvkQamNiFrNBu9+4OicMFuJkI0dZ2Ubs6F3LvU5sJeQa2YUdR0NttWFH5U+J6nTpVSLS1aXbUpVSniU83yGV+9AMBTTOmbsmdxo2TCMsWYu4Ni7+z2W/CqZq8Ls5TQx89WoFl/s5Mfbs9WwNJa2nS44bKCYZ5QQzRU7OKeutRDQ6ObtQjVlgXM+UQG//9qRb1BeDcopb336mg2UcToTaQtkdLmsVbIKiIRwmHGYS4LRgo5qFxNpubBl2VlFWUWcziD8J4x9cFVF3/wfxxwd2S9cIzWjzejhhH9qeGcZQ=
   file: tesseract.tar.xz
   on:
     repo: nijel/tesseract-ocr-build
