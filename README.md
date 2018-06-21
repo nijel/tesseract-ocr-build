@@ -6,7 +6,16 @@ tesseract included in Trusty is no longer supported by
 
 [![Build Status](https://travis-ci.com/nijel/tesseract-ocr-build.svg?branch=master)](https://travis-ci.com/nijel/tesseract-ocr-build)
 
-Usage (in `.travis.yml`):
+## Available versions
+
+* [3.05.02-3](https://github.com/nijel/tesseract-ocr-build/releases/download/3.05.02-3/tesseract.tar.xz) - tesseract 3.05.02 and leiptonica 1.76.0, currenly not compatible with tesserocr, see https://github.com/sirfz/tesserocr/issues/110
+* [3.04.01-1](https://github.com/nijel/tesseract-ocr-build/releases/download/3.04.01-1/tesseract.tar.xz) - tesseract 3.04.01 and leiptonica 1.73
+
+Other tags are kept for reference only and are not recommended for usage.
+
+## Usage
+
+Put folling into `.travis.yml`:
 
 ```yaml
 install:
@@ -14,5 +23,10 @@ install:
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
-  - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/3.05.02-3/tesseract.tar.xz | tar -C $HOME -xJf -
+  - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/3.04.01-1/tesseract.tar.xz | tar -C $HOME -xJf -
 ```
+
+## Langauge data
+
+The package contains English trained data, if you want to include more simply
+place the files to the `$HOME/.tesseract/share/tessdata` folder.
