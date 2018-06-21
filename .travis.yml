@@ -2,9 +2,10 @@ dist: trusty
 language: c
 sudo: false
 env:
-  global:
-    LEIPT=1.76.0
-    TESS=3.05.02
+  global: 
+    - LEIPT=1.76.0 
+    - TESS=3.05.02
+
 install:
   - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
   - tar xvf leptonica-$LEIPT.tar.gz
@@ -32,3 +33,18 @@ script:
   - make
   - make install
   - cd ..
+  - tar cfJ tesseract.tar.xz .tesseract
+
+before_deploy:
+  - git config --local user.name "Automated Build"
+  - git config --local user.email "noreply@cihar.com"
+  - git tag "$TESS-$LEIPT-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: wI/KDbEo1lYfV0ACWlPVuM2VkKekCrTHPP8aiPZAg4uG2PA4wlvj9RiHM210ul+cxRLF1Yrwtq2jZXdeZmLS1L4NRVfCyi67XDUFfEMi0hkZLlVvlVukDj4htpe9CJuQc7VGH9bOT7rsbN1dpy41ejbMF1H+teHIYDJLzMV+gwJtaTanhJDXO9njAulLc1IdkS9yDKQ7POQSsP5Q60JfcyfeojJPaBp9yRnCjVwapf7I3iH7Fz4EdsoOKFvvl5HhRdY/p74DEoAokrsqZ3+AfcOykXxyDIHowQyu2Nfa/xOCw4K5IqoCk7jfyV7y+S+SjuuqaIZ9zSaO86MMurpRfteS8TSZpxJDNFEVSeJ8TllhIFhx+sfni4ZL9MOJ77zRj9PDqwrF6dAKb2ESvhnhA2W9KjphQ4q4skCZRWyuoeRKMExUeLDDj+I6yUyQNIHSh5Tclek6dtzFR9+TrpEmFP/TU8KZGeTx+WFmMZAvDqBOtk5IQvAvgHw0XAosVccHmeb5rd0BB+/BEwxGjEPUOot3krn+D480w1Lfyh0mQHjkixyVGnXjADuQDVAcvfuLGF4yWim77Sw344MNMpnaaNr0+0FT4uurS1ZnwgL3JnHe8YHqt+HSZnWDsJjPdLAO0cvuay6bPt9nVyzPHzChyr3kuiE1cqXPb6BkFJ7l7+k=
+  file: tesseract.tar.xz
+  on:
+    repo: nijel/tesseract-ocr-build
+  skip-cleanup: yes
