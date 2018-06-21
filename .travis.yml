@@ -13,7 +13,7 @@ install:
   - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
   - tar xvf $TESS.tar.gz
   - mv tesseract-$TESS tesseract
-  - export TESSERACT_INSTALL=`pwd`/.tesseract
+  - export TESSERACT_INSTALL=$HOME/.tesseract
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
@@ -33,7 +33,8 @@ script:
   - make
   - make install
   - cd ..
-  - tar cfJ tesseract.tar.xz .tesseract
+  - cd $HOME
+  - tar cvfJ tesseract.tar.xz .tesseract
 
 before_deploy:
   - git config --local user.name "Automated Build"
