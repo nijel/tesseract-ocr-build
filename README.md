@@ -10,7 +10,7 @@ Usage (in `.travis.yml`):
 
 ```yaml
 install:
-  - export TESSERACT_INSTALL=`pwd`/.tesseract
+  - export TESSERACT_INSTALL=$HOME/.tesseract
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
