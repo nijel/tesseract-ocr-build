@@ -20,9 +20,6 @@ install:
 - export LIBLEPT_HEADERSDIR="$TESSERACT_INSTALL/include"
 - export LDFLAGS="-L$TESSERACT_INSTALL/lib"
 - export CFLAGS="-I$TESSERACT_INSTALL/include"
-- git config --local user.name "Automated Build"
-- git config --local user.email "noreply@cihar.com"
-- git tag "$TESS-$LEIPT-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 script:
 - cd leiptonica
@@ -46,4 +43,5 @@ deploy:
   file: tesseract.tar.xz
   on:
     repo: nijel/tesseract-ocr-build
+    tags: true
   skip-cleanup: yes
