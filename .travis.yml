@@ -35,6 +35,7 @@ script:
 - cd ..
 - cd $HOME
 - tar cvfJ tesseract.tar.xz .tesseract
+- ls -lah tesseract.tar.xz
 
 deploy:
   provider: releases
