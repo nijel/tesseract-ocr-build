@@ -15,7 +15,7 @@ Other tags are kept for reference only and are not recommended for usage.
 
 ## Usage
 
-Put folling into `.travis.yml`:
+Put following into `.travis.yml`:
 
 ```yaml
 install:
