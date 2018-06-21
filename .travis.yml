@@ -4,7 +4,7 @@ sudo: false
 env:
   global:
   - LEIPT=1.76.0
-  - TESS=3.05.02
+  - TESS=3.05.01
 
 install:
 - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
