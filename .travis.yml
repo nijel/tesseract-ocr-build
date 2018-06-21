@@ -27,6 +27,7 @@ script:
   - make install
   - cd ..
   - cd tesseract
+  - ./autogen.sh
   - ./configure --prefix=$TESSERACT_INSTALL
   - make
   - make install
