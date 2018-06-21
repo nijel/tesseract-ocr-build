@@ -23,13 +23,13 @@ install:
 
 script:
 - cd leiptonica
-- ./configure --prefix=$TESSERACT_INSTALL --disable-static
+- ./configure --prefix=$TESSERACT_INSTALL --disable-static CFLAGS="-O3"
 - make
 - make install
 - cd ..
 - cd tesseract
 - ./autogen.sh
-- ./configure --prefix=$TESSERACT_INSTALL --disable-static
+- ./configure --prefix=$TESSERACT_INSTALL --disable-static CFLAGS="-O3"
 - make
 - make install
 - cd ..
