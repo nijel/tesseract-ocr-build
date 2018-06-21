@@ -37,6 +37,7 @@ script:
 - wget https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata
 - cd $HOME
 - tar cvfJ tesseract.tar.xz .tesseract
+- ls -lah tesseract.tar.xz
 
 deploy:
   provider: releases
