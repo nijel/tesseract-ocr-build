@@ -3,7 +3,7 @@ language: c
 sudo: false
 env:
   global:
-  - LEIPT=1.73
+  - LEIPT=1.74.4
   - TESS=3.05.01
 
 install:
