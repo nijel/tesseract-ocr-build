@@ -3,13 +3,13 @@ language: c
 sudo: false
 env:
   global:
-  - LEIPT=1.76
+  - LEPT=1.76
   - TESS=4.0.0-beta.3
 
 install:
-- wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
-- tar xvf leptonica-$LEIPT.tar.gz
-- mv leptonica-$LEIPT leiptonica
+- wget http://www.leptonica.org/source/leptonica-$LEPT.tar.gz
+- tar xvf leptonica-$LEPT.tar.gz
+- mv leptonica-$LEPT leptonica
 - wget https://github.com/tesseract-ocr/tesseract/archive/$TESS.tar.gz
 - tar xvf $TESS.tar.gz
 - mv tesseract-$TESS tesseract
@@ -22,7 +22,7 @@ install:
 - export CFLAGS="-I$TESSERACT_INSTALL/include"
 
 script:
-- cd leiptonica
+- cd leptonica
 - ./configure --prefix=$TESSERACT_INSTALL --disable-static CFLAGS="-O3"
 - make
 - make install
