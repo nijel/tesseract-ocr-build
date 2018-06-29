@@ -3,7 +3,7 @@ language: c
 sudo: false
 env:
   global:
-  - LEPT=1.76
+  - LEPT=1.76.0
   - TESS=4.0.0-beta.3
 
 install:
