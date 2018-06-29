@@ -3,8 +3,8 @@ language: c
 sudo: false
 env:
   global:
-  - LEIPT=1.73
-  - TESS=3.04.01
+  - LEIPT=1.76
+  - TESS=4.0.0-beta.3
 
 install:
 - wget http://www.leptonica.org/source/leptonica-$LEIPT.tar.gz
