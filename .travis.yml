@@ -48,3 +48,8 @@ deploy:
     repo: nijel/tesseract-ocr-build
     tags: true
   skip-cleanup: yes
+
+addons:
+  apt:
+    packages:
+    - autoconf-archive
