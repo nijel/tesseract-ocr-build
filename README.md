@@ -21,11 +21,12 @@ Put following into `.travis.yml`:
 
 ```yaml
 install:
+  - export TESSERACT_VERSION=3.04.01-1
   - export TESSERACT_INSTALL=$HOME/.tesseract
   - export TESSERACT_PKG=$TESSERACT_INSTALL/lib/pkgconfig
   - export LD_LIBRARY_PATH=$TESSERACT_INSTALL/lib:$LD_LIBRARY_PATH
   - export PKG_CONFIG_PATH=$TESSERACT_PKG:$PKG_CONFIG_PATH
-  - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/3.04.01-1/tesseract.tar.xz | tar -C $HOME -xJf -
+  - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/$TESSERACT_VERSION/tesseract.tar.xz | tar -C $HOME -xJf -
 ```
 
 ## Langauge data
