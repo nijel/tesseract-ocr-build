@@ -29,7 +29,7 @@ install:
   - wget -O - https://github.com/nijel/tesseract-ocr-build/releases/download/$TESSERACT_VERSION/tesseract.tar.xz | tar -C $HOME -xJf -
 ```
 
-## Langauge data
+## Language data
 
 The package contains English trained data, if you want to include more simply
 place the files to the `$HOME/.tesseract/share/tessdata` folder.
