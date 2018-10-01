@@ -28,7 +28,6 @@ script:
 - make install
 - cd ..
 - cd tesseract
-- patch -p1 < ../patches/1825.patch
 - ./autogen.sh
 - ./configure --prefix=$TESSERACT_INSTALL --disable-static CFLAGS="-O3"
 - make
