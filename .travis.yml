@@ -4,7 +4,7 @@ sudo: false
 env:
   global:
   - LEPT=1.76.0
-  - TESS=4.0.0-rc1
+  - TESS=4.0.0-rc3
 
 install:
 - wget http://www.leptonica.org/source/leptonica-$LEPT.tar.gz
