@@ -1,6 +1,5 @@
 dist: trusty
 language: c
-sudo: false
 env:
   global:
   - LEPT=1.76.0
