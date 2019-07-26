@@ -15,6 +15,7 @@ tesseract included in Trusty is no longer supported by
 * [4.0.0-rc1-1](https://github.com/nijel/tesseract-ocr-build/releases/download/4.0.0-rc1-1/tesseract.tar.xz) - tesseract 4.0.0-rc1 and leptonica 1.76.0
 * [4.0.0-rc3-1](https://github.com/nijel/tesseract-ocr-build/releases/download/4.0.0-rc3-1/tesseract.tar.xz) - tesseract 4.0.0-rc3 and leptonica 1.76.0
 * [4.0.0-1](https://github.com/nijel/tesseract-ocr-build/releases/download/4.0.0-1/tesseract.tar.xz) - tesseract 4.0.0 and leptonica 1.76.0
+* [4.1.0-1](https://github.com/nijel/tesseract-ocr-build/releases/download/4.1.0-1/tesseract.tar.xz) - tesseract 4.1.0 and leptonica 1.78.0
 
 Other tags are kept for reference only and are not recommended for usage.
 
